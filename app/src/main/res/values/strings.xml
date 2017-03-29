@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">MiniProjetMobile</string>
+    <string name="messbienvenue">Bienvenue</string>
 </resources>
