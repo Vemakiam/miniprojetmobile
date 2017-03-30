@@ -9,8 +9,8 @@
     </CLASSES>
     <JAVADOC />
     <SOURCES>
-      <root url="jar:///usr/local/bin/android-sdk-22.6.3/Sdk/extras/android/m2repository/com/android/support/appcompat-v7/22.2.0/appcompat-v7-22.2.0-sources.jar!/" />
       <root url="jar:///usr/local/bin/android-sdk/Sdk/extras/android/m2repository/com/android/support/appcompat-v7/22.2.0/appcompat-v7-22.2.0-sources.jar!/" />
+      <root url="jar:///usr/local/bin/android-sdk-22.6.3/Sdk/extras/android/m2repository/com/android/support/appcompat-v7/22.2.0/appcompat-v7-22.2.0-sources.jar!/" />
     </SOURCES>
   </library>
 </component>
