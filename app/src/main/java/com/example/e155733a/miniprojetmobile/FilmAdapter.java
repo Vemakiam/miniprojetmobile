@@ -1,11 +1,15 @@
 package com.example.e155733a.miniprojetmobile;
 
 import android.content.Context;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -45,10 +49,12 @@ public class FilmAdapter extends BaseAdapter {
             row=inflater.inflate(R.layout.mon_layout_film, null);
         // personnalisation de la vue
         Film f = (Film) getItem(position);
+        ImageView photo = (ImageView) row.findViewById(R.id.imageFilm);
+        Picasso.with(context).load("https://image.tmdb.org/t/p/w500"+f.getImage()).into(photo);
         TextView titre = (TextView)row.findViewById(R.id.titre);
         titre.setText(f.getTitre());
-        TextView description = (TextView)row.findViewById(R.id.desc);
-        description.setText(f.getResumer());
+        TextView annee = (TextView)row.findViewById(R.id.annee);
+        annee.setText(f.getAnnee());
         return(row);
     }
 }
