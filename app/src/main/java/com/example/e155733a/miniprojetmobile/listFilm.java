@@ -3,7 +3,6 @@ package com.example.e155733a.miniprojetmobile;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.android.volley.Request;
@@ -48,7 +47,7 @@ public class listFilm extends AppCompatActivity {
                                     ArrayList<Film> filmListe = new ArrayList<>();
                                     for (int i=0; i < ar.length();i++) {
                                         JSONObject val = ar.getJSONObject(i);
-                                        Film film = new Film(val.getString("poster_path"), val.getString("title"), val.getString("release_date"), val.getString("genre_ids"), val.getString("overview"));
+                                        Film film = new Film(val.getString("poster_path"), val.getString("title"), val.getString("release_date"), val.getString("overview"));
                                         filmListe.add(film);
                                     }
                                     affichage_liste_films(filmListe);

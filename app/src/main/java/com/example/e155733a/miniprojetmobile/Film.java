@@ -7,14 +7,12 @@ public class Film {
     private String image;
     private String titre;
     private String annee;
-    private String genres;
     private String resumer;
 
-    public Film(String image, String titre, String annee, String genres, String resumer) {
+    public Film(String image, String titre, String annee, String resumer) {
         this.image = image;
         this.titre = titre;
         this.annee = annee;
-        this.genres = genres;
         this.resumer = resumer;
     }
 
@@ -30,9 +28,6 @@ public class Film {
         return annee;
     }
 
-    public String getGenres() {
-        return genres;
-    }
 
     public String getResumer() {
         return resumer;
@@ -43,7 +38,6 @@ public class Film {
         return "image='" + image + '\'' +
                 ", titre='" + titre + '\'' +
                 ", annee='" + annee + '\'' +
-                ", genres='" + genres + '\'' +
                 ", resumer='" + resumer + '\'';
     }
 }
