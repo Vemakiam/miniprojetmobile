@@ -1,8 +1,12 @@
 package com.example.e155733a.miniprojetmobile;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 
 import com.android.volley.Request;
@@ -24,28 +28,40 @@ import java.util.Map;
 /**
  * Created by E155733A on 30/03/17.
  */
-public class listFilm extends AppCompatActivity {
+    public class VueListe extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.list_film);
         affReq();
+        final ListView listfilm = (ListView) findViewById(R.id.listeFilm);
+        listfilm.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent it = new Intent(VueListe.this, VueDetail.class);
+                it.putExtra("film", (Film) listfilm.getItemAtPosition(position));
+                startActivity(it);
+            }
+        });
     }
 
     private void affReq() {
+        Bundle extras = getIntent().getExtras();
+        String recherche = extras.getString("recherche");
+        final int nbResultats = extras.getInt("nbResultats");
         RequestQueue queue = Volley.newRequestQueue(this);
         StringRequest stringRequest =
                 new StringRequest(
                         Request.Method.GET,
-                        "https://api.themoviedb.org/3/search/movie?api_key=b5fee4ae2d7830bef6768caf85408dcc&language=fr&region=france&query=logan&page=1",
+                        "https://api.themoviedb.org/3/search/movie?api_key=b5fee4ae2d7830bef6768caf85408dcc&language=fr&region=france&query="+recherche+"&page=1",
                         new Response.Listener<String>() {
                             public void onResponse(String response) {
                                 try {
                                     JSONObject repObj = (JSONObject) new JSONTokener(response).nextValue();
                                     JSONArray ar = repObj.getJSONArray("results");
                                     ArrayList<Film> filmListe = new ArrayList<>();
-                                    for (int i=0; i < ar.length();i++) {
+                                    for (int i=0; i < nbResultats;i++) {
                                         JSONObject val = ar.getJSONObject(i);
                                         Film film = new Film(val.getString("poster_path"), val.getString("title"), val.getString("release_date"), val.getString("overview"));
                                         filmListe.add(film);

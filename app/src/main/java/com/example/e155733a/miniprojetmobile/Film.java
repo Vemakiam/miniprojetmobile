@@ -1,9 +1,11 @@
 package com.example.e155733a.miniprojetmobile;
 
+import java.io.Serializable;
+
 /**
  * Created by E155733A on 29/03/17.
  */
-public class Film {
+public class Film implements Serializable {
     private String image;
     private String titre;
     private String annee;

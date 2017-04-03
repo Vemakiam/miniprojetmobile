@@ -9,21 +9,39 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.e155733a.miniprojetmobile.MainActivity">
 
-    <TextView
+    <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="SALUT Bienvenue"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="146dp"
-        android:id="@+id/textView" />
+        android:inputType="textPersonName"
+        android:text="Rechercher"
+        android:ems="10"
+        android:id="@+id/saisieRecherche"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/nbResultats"
+        android:layout_below="@+id/saisieRecherche"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="22dp" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Voir films"
         android:id="@+id/changerVue"
-        android:layout_centerVertical="true"
-        android:layout_alignEnd="@+id/textView"
-        android:onClick="afficherFilmVue" />
+        android:layout_below="@+id/nbResultats"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="13dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SALUT Bienvenue"
+        android:layout_marginTop="59dp"
+        android:id="@+id/textView"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>
